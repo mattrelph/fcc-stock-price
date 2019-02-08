@@ -116,8 +116,8 @@ suite('Functional Tests', function() {
            assert.property(res.body, 'stockData', 'Response should contain stockData');
            assert.isArray(res.body.stockData, 'stockData should be an array');
            assert.equal(res.body.stockData.length, 2,  'stockData should be an array of length 2');
-          
-            for (var i=0; i<res.body.stockData.length; ++i)
+          //Eliminated for loop to pass backend tests
+            /*for (var i=0; i<res.body.stockData.length; ++i)
             {
              assert.property(res.body.stockData[i], 'stock', 'Each stockData entry should contain stock');
              assert.property(res.body.stockData[i], 'price', 'Each stockData entry should contain price');
@@ -127,7 +127,25 @@ suite('Functional Tests', function() {
              assert.isString(res.body.stockData[i].price, 'price should be a string');
              assert.isNumber(res.body.stockData[i].rel_likes, 'rel_likes should be a number');          
 
-            }
+            }*/
+          
+              assert.property(res.body.stockData[0], 'stock', 'Each stockData entry should contain stock');
+             assert.property(res.body.stockData[0], 'price', 'Each stockData entry should contain price');
+             assert.property(res.body.stockData[0], 'rel_likes', 'Each stockData entry should contain rel_likes');
+
+             assert.isString(res.body.stockData[0].stock, 'stock should be a string');
+             assert.isString(res.body.stockData[0].price, 'price should be a string');
+             assert.isNumber(res.body.stockData[0].rel_likes, 'rel_likes should be a number');          
+          
+              assert.property(res.body.stockData[1], 'stock', 'Each stockData entry should contain stock');
+             assert.property(res.body.stockData[1], 'price', 'Each stockData entry should contain price');
+             assert.property(res.body.stockData[1], 'rel_likes', 'Each stockData entry should contain rel_likes');
+
+             assert.isString(res.body.stockData[1].stock, 'stock should be a string');
+             assert.isString(res.body.stockData[1].price, 'price should be a string');
+             assert.isNumber(res.body.stockData[1].rel_likes, 'rel_likes should be a number');          
+          
+          
             assert.equal(res.body.stockData[0].stock, 'GOOG', 'stock should be capitilized symbol');
             assert.equal(res.body.stockData[1].stock, 'MSFT', 'stock should be capitilized symbol');
             assert.equal(res.body.stockData[1].rel_likes, -1*res.body.stockData[0].rel_likes, 'relative likes should be inverse of each other');
@@ -150,17 +168,35 @@ suite('Functional Tests', function() {
            assert.isArray(res.body.stockData, 'stockData should be an array');
            assert.equal(res.body.stockData.length, 2,  'stockData should be an array of length 2');
           
-            for (var i=0; i<res.body.stockData.length; ++i)
+            //Eliminated for loop to pass backend tests
+            /*for (var i=0; i<res.body.stockData.length; ++i)
             {
-            
              assert.property(res.body.stockData[i], 'stock', 'Each stockData entry should contain stock');
              assert.property(res.body.stockData[i], 'price', 'Each stockData entry should contain price');
              assert.property(res.body.stockData[i], 'rel_likes', 'Each stockData entry should contain rel_likes');
 
              assert.isString(res.body.stockData[i].stock, 'stock should be a string');
              assert.isString(res.body.stockData[i].price, 'price should be a string');
-             assert.isNumber(res.body.stockData[i].rel_likes, 'likes should be a number');  
-            }
+             assert.isNumber(res.body.stockData[i].rel_likes, 'rel_likes should be a number');          
+
+            }*/
+          
+             assert.property(res.body.stockData[0], 'stock', 'Each stockData entry should contain stock');
+             assert.property(res.body.stockData[0], 'price', 'Each stockData entry should contain price');
+             assert.property(res.body.stockData[0], 'rel_likes', 'Each stockData entry should contain rel_likes');
+
+             assert.isString(res.body.stockData[0].stock, 'stock should be a string');
+             assert.isString(res.body.stockData[0].price, 'price should be a string');
+             assert.isNumber(res.body.stockData[0].rel_likes, 'rel_likes should be a number');          
+          
+             assert.property(res.body.stockData[1], 'stock', 'Each stockData entry should contain stock');
+             assert.property(res.body.stockData[1], 'price', 'Each stockData entry should contain price');
+             assert.property(res.body.stockData[1], 'rel_likes', 'Each stockData entry should contain rel_likes');
+
+             assert.isString(res.body.stockData[1].stock, 'stock should be a string');
+             assert.isString(res.body.stockData[1].price, 'price should be a string');
+             assert.isNumber(res.body.stockData[1].rel_likes, 'rel_likes should be a number'); 
+          
             assert.equal(res.body.stockData[0].stock, 'GOOG', 'stock should be capitilized symbol');
             assert.equal(res.body.stockData[1].stock, 'MSFT', 'stock should be capitilized symbol');
             assert.equal(res.body.stockData[1].rel_likes, -1*res.body.stockData[0].rel_likes, 'relative likes should be inverse of each other');
