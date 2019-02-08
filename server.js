@@ -14,13 +14,23 @@ var helmet        = require('helmet');
 var app = express();
 
 app.use(helmet());
+
+//The original backend test wouldn't allow for inline scripts which breaks the web interface, I modified to allow local inline
+/*app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],    //Note: this breaks the web page interface - won't load jQuery or inline scripts, but apparently required to pass tests
+    styleSrc: ["'self'"]
+    //,scriptSrc: ["'self'", "'unsafe-inline'", "https://code.jquery.com/jquery-2.2.1.min.js"]  //This line  would fix the front page but the test doesn't like it. You can't even use a nonce
+  }
+}))*/
 app.use(helmet.contentSecurityPolicy({
   directives: {
-    defaultSrc: ["'self'"],
-    styleSrc: ["'self'"],
-    //scriptSrc: ["'self'"]
+    defaultSrc: ["'self'"],    //Note: this breaks the web page interface - won't load jQuery or inline scripts, but apparently required to pass tests
+    styleSrc: ["'self'","'unsafe-inline'"]
+   ,scriptSrc: ["'self'", "'unsafe-inline'"]  //This line  would fix the front page but the test doesn't like it. You can't even use a nonce
   }
 }))
+  
 app.use('/public', express.static(process.cwd() + '/public'));
 
 app.use(cors({origin: '*'})); //For FCC testing purposes only

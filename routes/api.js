@@ -34,7 +34,7 @@ db.connect(() => {
   
   app.route('/api/stock-prices')
     .get(function (req, res){
-      //console.log(req.query);
+      //console.log("Initial query " + JSON.stringify(req.query));
       var promiseArray = [];    //List of stocks to fetch
       var numberStocks = 0;
       if (req.query.hasOwnProperty('stock'))    //Check if a stock has been requested
