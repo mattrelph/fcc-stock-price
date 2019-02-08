@@ -9,6 +9,8 @@ Project Stock Price Checker
 4) You will create all of the functional tests in `tests/2_functional-tests.js`
 
 
+## USE https://juvenile-leather.glitch.me/ to test (Fixed ISQ5 functionality)
+
 ## User Stories
 - Set the content security policies to only allow loading of scripts and css from your server.
 - I can GET /api/stock-prices with form data containing a Nasdaq stock ticker and recieve back an object stockData.
